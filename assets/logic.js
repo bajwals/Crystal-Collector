@@ -6,6 +6,8 @@ var green = 0;
 var purple = 0;
 var wins = 0;
 var losses = 0;
+var audioElement = document.createElement("audio");
+audioElement.setAttribute("src", "assets/youwin.mp3");
 
 function generateRand(n){
     var i = Math.floor(Math.random() * n);
@@ -35,6 +37,7 @@ function startGame(){
 function checkState() {
     if (userScore == randomNumber) {
         $("#game-state").text("You Win!");
+        audioElement.play();
         wins++
         $("#wins").text(wins);
         $("#random-button").removeAttr("disabled")
