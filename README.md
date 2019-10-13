@@ -1,5 +1,6 @@
 
 # Crystal-Collector
+By: Lakshdeep Bajwa
 
 ## How to play
 This is Crystal Collector. In this game, you'll be given a random target number of crystals below.
