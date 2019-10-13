@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Number Collector</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Crystal Collector</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
     <nav class="navbar navbar-light" style="background-color: #009999;">
-        Number Collector
+        Crystal Collector
     </nav>
+    
+    <p> This is Crystal Collector. In this game, you'll be given a random target number of crystals below. 
+        You'll also be given four different colored crystals, each with a random value. As you choose a crystal, you'll reveal
+        its value and that to your crystal score. Your goal is to match the target crystals. If you go over, you lose!
+
+    </p>
 
     <div class ="card">
         <p> The random number is: <span id="random-number"></span> </p>
@@ -20,21 +25,21 @@
     </div>
 
     <div class="card">
-        <i class="fas fa-gem" style="color:red"></i> <button class="gem" id="red">RED <span id="red-value"> ? </span> </button>
-        <i class="fas fa-gem" style="color:blue"></i> <button class="gem" id="blue">BLUE <span id="blue-value"> ? </span> </button>
-        <i class="fas fa-gem" style="color:green"></i> <button class="gem" id="green">GREEN <span id="green-value"> ? </span> </button>
-        <i class="fas fa-gem" style="color:purple"></i> <button class="gem" id="purple">PURPLE <span id="purple-value"> ? </span> </button>
+        <button class="gem" id="red" style="color: red"><i class="fas fa-gem" style="color:red"></i> RED <span id="red-value"> ? </span> </button>
+        <button class="gem" id="blue" style="color: blue"><i class="fas fa-gem" style="color:blue"></i> BLUE <span id="blue-value"> ? </span> </button>
+        <button class="gem" id="green" style="color: green"><i class="fas fa-gem" style="color:green"></i> GREEN <span id="green-value"> ? </span> </button>
+        <button class="gem" id="purple" style="color: purple"><i class="fas fa-gem" style="color:purple"></i>PURPLE <span id="purple-value"> ? </span> </button>
     </div>
 
     <div class ="card">
         <p> Game state: <span id="game-state"></span> </p>
         <p> Wins: <span id="wins">0</span> </p>
         <p> Losses: <span id="losses">0</span> </p>
-        <button id="random-button" class="btn btn-primary btn-lg"><h1><span>Restart</span></h1></button>
+        <button id="random-button" class="btn btn-primary btn-lg"><h1><span><i class="fas fa-undo"></i>Restart</span></h1></button>
     </div>
 
+<script src="https://kit.fontawesome.com/bf52dc0d0c.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <script type="text/javascript">
 
 var randomNumber = 0;
@@ -128,8 +133,6 @@ $("#purple").on("click", function(){
 $("#random-button").on("click", function(){
     startGame();
 })
-
-
 
 </script>
 
