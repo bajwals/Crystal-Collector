@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Number Collector</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
     <nav class="navbar navbar-light" style="background-color: #009999;">
-        Crystal Collector
+        Number Collector
     </nav>
 
     <div class ="card">
@@ -20,21 +20,21 @@
     </div>
 
     <div class="card">
-        <button id="red">RED <span id="red-value"> ? </span> </button>
-        <button id="blue">BLUE <span id="blue-value"> ? </span> </button>
-        <button id="green">GREEN <span id="green-value"> ? </span> </button>
-        <button id="purple">PURPLE <span id="purple-value"> ? </span> </button>
+        <i class="fas fa-gem" style="color:red"></i> <button class="gem" id="red">RED <span id="red-value"> ? </span> </button>
+        <i class="fas fa-gem" style="color:blue"></i> <button class="gem" id="blue">BLUE <span id="blue-value"> ? </span> </button>
+        <i class="fas fa-gem" style="color:green"></i> <button class="gem" id="green">GREEN <span id="green-value"> ? </span> </button>
+        <i class="fas fa-gem" style="color:purple"></i> <button class="gem" id="purple">PURPLE <span id="purple-value"> ? </span> </button>
     </div>
 
     <div class ="card">
         <p> Game state: <span id="game-state"></span> </p>
         <p> Wins: <span id="wins">0</span> </p>
         <p> Losses: <span id="losses">0</span> </p>
-        <button id="random-button" class="btn btn-primary btn-lg"><h1><span class="fa fa-question"></span></h1></button>
-        <p> Random Number Display: <span id="random-gen-display">0</span> </p>
+        <button id="random-button" class="btn btn-primary btn-lg"><h1><span>Restart</span></h1></button>
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script type="text/javascript">
 
 var randomNumber = 0;
@@ -52,21 +52,41 @@ function generateRand(n){
 };
 
 function startGame(){
-    var randomNumber = generateRand(50)
-    $("#user-score").text(userScore);
-    $("#random-number").text(randomNumber);
-}
-
-$( document ).ready(function() {
+    randomNumber = 0;
+    userScore = 0;
     red = generateRand(12);
     blue = generateRand(12);
     green = generateRand(12);
     purple = generateRand(12);
     randomNumber = generateRand(50);
-    $("#random-gen-display").text(randomNumber);
+    $("#red-value").text("?");
+    $("#blue-value").text("?");
+    $("#green-value").text("?");
+    $("#purple-value").text("?");
+    $("#random-number").text(randomNumber);
+    $("#user-score").text(userScore);
+    $("#random-button").attr("disabled", "true")
+    $("#game-state").text("Play!");
     console.log("The Gem Values are | Red: " + red  + " | Blue: " + blue + " | Green: " + green + " | Purple: " + purple);
     console.log("The random number is: " + randomNumber);
-    $("#game-state").text("Game On!");
+}
+
+function checkState() {
+    if (userScore == randomNumber) {
+        $("#game-state").text("You Win!");
+        wins++
+        $("#wins").text(wins);
+        $("#random-button").removeAttr("disabled")
+    } else if (userScore > randomNumber) {
+        $("#game-state").text("You Lose!");
+        losses++
+        $("#losses").text(losses);
+        $("#random-button").removeAttr("disabled")
+    };
+};
+
+$( document ).ready(function() {
+    startGame();
 });
 
 $("#red").on("click", function(){
@@ -75,6 +95,7 @@ $("#red").on("click", function(){
     console.log("The User Score is: " + userScore);
     $("#user-score").text(userScore);
     $("#red-value").text(red);
+    checkState();
 })
 
 $("#blue").on("click", function(){
@@ -83,6 +104,7 @@ $("#blue").on("click", function(){
     console.log("The User Score is: " + userScore);
     $("#user-score").text(userScore);
     $("#blue-value").text(blue);
+    checkState();
 })
 
 $("#green").on("click", function(){
@@ -91,6 +113,7 @@ $("#green").on("click", function(){
     console.log("The User Score is: " + userScore);
     $("#user-score").text(userScore);
     $("#green-value").text(green);
+    checkState();
 })
 
 $("#purple").on("click", function(){
@@ -99,18 +122,16 @@ $("#purple").on("click", function(){
     console.log("The User Score is: " + userScore);
     $("#user-score").text(userScore);
     $("#purple-value").text(purple);
+    checkState();
+});
+
+$("#random-button").on("click", function(){
+    startGame();
 })
 
 
 
-
-
-
-
-
 </script>
-
-
 
 </body>
 </html>
