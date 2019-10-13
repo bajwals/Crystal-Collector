@@ -2,12 +2,38 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.navbar-brand {
+    font-size: 36px;
+    text-align: center;
+}
+
 .navbar {
-    font-size: 24px;
+    background-color: #9300ce;
+}
+
+#crystal-title {
     color: #ffffff;
     text-align: center;
 }
 
 .btn {
     display: inline;
+}
+
+.card-body {
+    font-size: 16px;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.fas {
+    margin: 10px;
+}
+
+.fa-gem {
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
