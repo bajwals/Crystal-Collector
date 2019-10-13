@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-light" style="background-color: #009999;">
+        Crystal Collector
+    </nav>
+
+    <div class ="card">
+        <p> The random number is: <span id="random-number"></span> </p>
+    </div>
+
+    <div class ="card">
+        <p> Your current Score: <span id="user-score">0</span> </p>
+    </div>
+
+    <div class="card">
+        <button id="red">RED <span id="red-value"> ? </span> </button>
+        <button id="blue">BLUE <span id="blue-value"> ? </span> </button>
+        <button id="green">GREEN <span id="green-value"> ? </span> </button>
+        <button id="purple">PURPLE <span id="purple-value"> ? </span> </button>
+    </div>
+
+    <div class ="card">
+        <p> Game state: <span id="game-state"></span> </p>
+        <p> Wins: <span id="wins">0</span> </p>
+        <p> Losses: <span id="losses">0</span> </p>
+        <button id="random-button" class="btn btn-primary btn-lg"><h1><span class="fa fa-question"></span></h1></button>
+        <p> Random Number Display: <span id="random-gen-display">0</span> </p>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+var randomNumber = 0;
+var userScore = 0;
+var red = 0;
+var blue = 0;
+var green = 0;
+var purple = 0;
+var wins = 0;
+var losses = 0;
+
+function generateRand(n){
+    var i = Math.floor(Math.random() * n);
+    return(i);
+};
+
+function startGame(){
+    var randomNumber = generateRand(50)
+    $("#user-score").text(userScore);
+    $("#random-number").text(randomNumber);
+}
+
+$( document ).ready(function() {
+    red = generateRand(12);
+    blue = generateRand(12);
+    green = generateRand(12);
+    purple = generateRand(12);
+    randomNumber = generateRand(50);
+    $("#random-gen-display").text(randomNumber);
+    console.log("The Gem Values are | Red: " + red  + " | Blue: " + blue + " | Green: " + green + " | Purple: " + purple);
+    console.log("The random number is: " + randomNumber);
+    $("#game-state").text("Game On!");
+});
+
+$("#red").on("click", function(){
+    console.log("The Red Gem is: " + red)
+    userScore = userScore + red;
+    console.log("The User Score is: " + userScore);
+    $("#user-score").text(userScore);
+    $("#red-value").text(red);
+})
+
+$("#blue").on("click", function(){
+    console.log("The Blue Gem is: " + blue)
+    userScore = userScore + blue;
+    console.log("The User Score is: " + userScore);
+    $("#user-score").text(userScore);
+    $("#blue-value").text(blue);
+})
+
+$("#green").on("click", function(){
+    console.log("The green Gem is: " + green)
+    userScore = userScore + green;
+    console.log("The User Score is: " + userScore);
+    $("#user-score").text(userScore);
+    $("#green-value").text(green);
+})
+
+$("#purple").on("click", function(){
+    console.log("The purple Gem is: " + purple)
+    userScore = userScore + purple;
+    console.log("The User Score is: " + userScore);
+    $("#user-score").text(userScore);
+    $("#purple-value").text(purple);
+})
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
