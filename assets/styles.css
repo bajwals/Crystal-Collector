@@ -21,8 +21,9 @@ body {
 }
 
 .card-body {
-    font-size: 16px;
+    font-size: 24px;
     text-align: center;
+    font-weight: 900;
 }
 
 p {
@@ -31,9 +32,15 @@ p {
 
 .fas {
     margin: 10px;
+    color: #ffffff;
 }
 
 .fa-gem {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.scores {
     margin-top: 25px;
     margin-bottom: 25px;
 }

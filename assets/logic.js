@@ -45,7 +45,7 @@ function checkState() {
         $("#game-state").text("You Lose!");
         losses++
         $("#losses").text(losses);
-        $("#random-button").removeAttr("disabled")
+        $("#random-button").removeAttr("disabled");
     };
 };
 
