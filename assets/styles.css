@@ -16,8 +16,17 @@ body {
     text-align: center;
 }
 
-.btn {
-    display: inline;
+.gem-btn {
+    color: #ffffff;
+    width: 125px;
+    border-radius: 50px;
+}
+
+.gem-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
 }
 
 .card-body {
